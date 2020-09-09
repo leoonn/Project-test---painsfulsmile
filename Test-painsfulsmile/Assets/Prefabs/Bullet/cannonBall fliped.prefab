@@ -98,8 +98,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Bullet: {fileID: 0}
   BulletFliped: {fileID: 8249334886167355076}
-  speedBullet: -10
-  speedBulletFliped: 0
+  speedBullet: -15
   lifeBullet: 3
 --- !u!50 &-4100656734499994997
 Rigidbody2D:

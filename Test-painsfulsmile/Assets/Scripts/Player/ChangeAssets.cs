@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class ChangeAssets : MonoBehaviour
 {
-    public SpriteRenderer[] originalsAssets;
+    public SpriteRenderer []originalsAssets;
     public Sprite[] newAssets;
     void Start()
     {
-        originalsAssets[0] = gameObject.GetComponent<SpriteRenderer>();
-        originalsAssets[1] = gameObject.GetComponent<SpriteRenderer>();
+        originalsAssets[0] = GameObject.Find("hullLargefull").GetComponent<SpriteRenderer>();
+        originalsAssets[1] = GameObject.Find("sailSmallIdle").GetComponent<SpriteRenderer>();
     }
 
     // Update is called once per frame

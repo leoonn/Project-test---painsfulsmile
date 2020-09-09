@@ -30,12 +30,12 @@ public class PlayerMove : MonoBehaviour
         {
             //rb.velocity = (Vector2.right * speed);
             transform.Translate(new Vector3(0,-1, 0) * Time.deltaTime * speed, Space.Self);
-            
+            AssetsScript.ChangeSpriteSnailWalk();
         }
         else
         {
             rb.velocity = Vector2.zero;
-           
+            AssetsScript.ChangeSpriteSnailIdle();
         }
     }
 

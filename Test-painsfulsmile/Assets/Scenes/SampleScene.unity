@@ -272,7 +272,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: 6eb279677d553ca4f800c66f57faf8d0, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 50f9b941b7bbf8e4c819c4cb02081907, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -283,6 +283,12 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!212 &109948873 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 6265491797406118282, guid: d4847305a4a579e4cad1d6d0edcd623c,
+    type: 3}
+  m_PrefabInstance: {fileID: 6265491797297749571}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &109948874 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6265491797406118281, guid: d4847305a4a579e4cad1d6d0edcd623c,
@@ -523,7 +529,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: 6eb279677d553ca4f800c66f57faf8d0, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 50f9b941b7bbf8e4c819c4cb02081907, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -545,7 +551,7 @@ GameObject:
   - component: {fileID: 1263911620}
   - component: {fileID: 1263911619}
   m_Layer: 0
-  m_Name: hullLarge full
+  m_Name: hullLargefull
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -685,7 +691,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: 6eb279677d553ca4f800c66f57faf8d0, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 50f9b941b7bbf8e4c819c4cb02081907, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 1
   m_FlipY: 0
@@ -766,7 +772,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: 6eb279677d553ca4f800c66f57faf8d0, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 50f9b941b7bbf8e4c819c4cb02081907, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -790,6 +796,7 @@ GameObject:
   - component: {fileID: 1619759312}
   - component: {fileID: 1619759313}
   - component: {fileID: 1164259480072261294}
+  - component: {fileID: 1619759314}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -870,6 +877,28 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 2
   speedRot: 70
+--- !u!114 &1619759314
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1619759309}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 00495021b8bb6b44f926974f79561789, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  originalsAssets:
+  - {fileID: 1263911619}
+  - {fileID: 109948873}
+  newAssets:
+  - {fileID: 21300000, guid: 7d5d6f686d7d7774987da8bf211e9e4b, type: 3}
+  - {fileID: 21300000, guid: 11ec7243aa0266f4a9f79b03bdb0cfbe, type: 3}
+  - {fileID: 21300000, guid: 36d92620e924a7845bd6793ee3596648, type: 3}
+  - {fileID: 21300000, guid: 2280485e3785db7418838866e822ece0, type: 3}
+  - {fileID: 21300000, guid: 11c35e6095713814392b9c64f0d28894, type: 3}
+  - {fileID: 21300000, guid: b988c9dd539559d4abe1c3e488aa5062, type: 3}
 --- !u!114 &1164259480072261294
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -983,7 +1012,7 @@ PrefabInstance:
     - target: {fileID: 6265491797406118283, guid: d4847305a4a579e4cad1d6d0edcd623c,
         type: 3}
       propertyPath: m_Name
-      value: sailSmall idle
+      value: sailSmallIdle
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d4847305a4a579e4cad1d6d0edcd623c, type: 3}

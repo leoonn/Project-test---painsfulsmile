@@ -6,6 +6,7 @@ public class Shoot : MonoBehaviour
 {
     public Transform[] Gunplayer; //player position
     public GameObject bulletprefab;
+    public GameObject BulletFlipedPrefab;
     public float fireRate = 25f;
     public float countTime;
 
@@ -31,7 +32,7 @@ public class Shoot : MonoBehaviour
 
             Instantiate(bulletprefab, Gunplayer[0].position, Gunplayer[0].rotation); //instanteate one bullet
             Instantiate(bulletprefab, Gunplayer[1].position, Gunplayer[1].rotation); //instanteate one bullet
-            Instantiate(bulletprefab, Gunplayer[2].position, Gunplayer[2].rotation); //instanteate one bullet
+            Instantiate(BulletFlipedPrefab, Gunplayer[2].position, Gunplayer[2].rotation); //instanteate one bullet
             Instantiate(bulletprefab, Gunplayer[3].position, Gunplayer[3].rotation); //instanteate one bullet
             ResetTime(); //call the method 
             //fire.Play(); //play particle of bullet

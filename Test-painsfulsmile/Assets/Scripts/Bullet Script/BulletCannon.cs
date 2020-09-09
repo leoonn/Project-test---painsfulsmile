@@ -5,15 +5,26 @@ using UnityEngine;
 public class BulletCannon : MonoBehaviour
 {
     public GameObject Bullet;
+    public GameObject BulletFliped;
     public int speedBullet;
+  
     Rigidbody2D BulletRb;
     public float lifeBullet = 10f;
 
     private void Awake()
     {
         BulletRb = GetComponent<Rigidbody2D>(); //get component Rigidbody
-        BulletRb.AddForce(BulletRb.transform.right * speedBullet); //addforce bullet
-        Destroy(gameObject, lifeBullet); //Destroy bullet in time life
+        if (Bullet)
+        {
+            BulletRb.AddForce(BulletRb.transform.right * speedBullet); //addforce bullet
+            Destroy(gameObject, lifeBullet); //Destroy bullet in time life
+        }
+        if (BulletFliped)
+        {
+            BulletRb.AddForce(BulletRb.transform.right * speedBullet); //addforce bullet
+            Destroy(gameObject, lifeBullet); //Destroy bullet in time life
+        }
+       
     }
     void Start()
     {
@@ -25,4 +36,5 @@ public class BulletCannon : MonoBehaviour
     {
         
     }
+    
 }

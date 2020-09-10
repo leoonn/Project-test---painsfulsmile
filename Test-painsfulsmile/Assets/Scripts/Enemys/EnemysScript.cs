@@ -26,13 +26,6 @@ public class EnemysScript : Shoot
     ChangeAssets SailScriptChase;
     ChangeAssets SailScriptShooter;
 
-    ChangeAssets HullScriptChase;
-    ChangeAssets HullScriptShooter;
-
-    public int lifeEnemy = 5;
-
-    Rigidbody2D rbEnemy;
-
     void Start()
     {
         waitTimePoint = startTimePoint;
@@ -40,15 +33,8 @@ public class EnemysScript : Shoot
         RandomPoint = Random.Range(0, movepoint.Length);
         timeShot = startTimeShots;
 
-        SailScriptChase = GameObject.Find("sail enemy chase").GetComponent<ChangeAssets>();
-        SailScriptShooter = GameObject.Find("sail enemy shooter").GetComponent<ChangeAssets>();
-
-        HullScriptChase = GameObject.Find("hull enemy chase").GetComponent<ChangeAssets>();
-        HullScriptShooter = GameObject.Find("hull enemy shooter").GetComponent<ChangeAssets>();
-
-        rbEnemy = gameObject.GetComponent<Rigidbody2D>();
-
-        lifeEnemy = 5;
+        SailScriptChase = GameObject.Find("sailSmallIdle enemy chase").GetComponent<ChangeAssets>();
+        SailScriptShooter = GameObject.Find("sailSmallIdle enemy shooter").GetComponent<ChangeAssets>();
     }
 
     // Update is called once per frame
@@ -151,9 +137,6 @@ public class EnemysScript : Shoot
                     Type = enemyType.patrol;
                 }
                 break;
-            case enemyType.dead:
-                
-                break;
 
         }
 
@@ -161,8 +144,8 @@ public class EnemysScript : Shoot
     void FollowPlayer(Vector2 player)
     {
         transform.position = Vector2.MoveTowards(transform.position, player, speedEnemy * Time.deltaTime);
-        SailScriptChase.gameObject.GetComponent<ChangeAssets>().ChangeSpriteSnailWalk();
-        SailScriptShooter.gameObject.GetComponent<ChangeAssets>().ChangeSpriteSnailWalk();
+        SailScriptChase.ChangeSpriteSnailWalk();
+        SailScriptShooter.ChangeSpriteSnailWalk();
     }
     void RotateForPlayer(Vector2 player)
     {
@@ -171,58 +154,14 @@ public class EnemysScript : Shoot
         direction.Normalize();
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg; // convert radians in constant
         transform.rotation = Quaternion.Euler(Vector3.forward * (angle + offset));
-        SailScriptChase.gameObject.GetComponent<ChangeAssets>().ChangeSpriteSnailWalk();
-        SailScriptShooter.gameObject.GetComponent<ChangeAssets>().ChangeSpriteSnailWalk();
+        SailScriptChase.ChangeSpriteSnailWalk();
+        SailScriptShooter.ChangeSpriteSnailWalk();
     }
     void FollowMovePoint(Vector2 movepoint)
     {
 
         transform.position = Vector2.MoveTowards(transform.position, movepoint, speedEnemy * Time.deltaTime);
-        SailScriptChase.gameObject.GetComponent<ChangeAssets>().ChangeSpriteSnailWalk();
-        SailScriptShooter.gameObject.GetComponent<ChangeAssets>().ChangeSpriteSnailWalk();
-    }
-
-    private void OnTriggerEnter2D(Collider2D col)
-    {
-        if (col.gameObject.CompareTag("BulletPlayer"))
-        {
-            lifeEnemy--;
-            LifeEnemy();
-            Destroy(col.gameObject);
-        }
-    }
-    void LifeEnemy()
-    {
-        if (lifeEnemy == 0)
-        {
-            speedEnemy = 0;
-            Vector2 stop = Vector2.zero;
-            
-            HullScriptShooter.gameObject.GetComponent<ChangeAssets>().ChangeSpriteEnemyDeath();
-            HullScriptChase.gameObject.GetComponent<ChangeAssets>().ChangeSpriteEnemyDeath();
-            SailScriptChase.gameObject.GetComponent<ChangeAssets>().ChangeSpriteEnemyDeath();
-            SailScriptShooter.gameObject.GetComponent<ChangeAssets>().ChangeSpriteEnemyDeath();
-
-            Type = enemyType.dead;
-            
-        }
-
-        if (lifeEnemy == 3)
-        {
-
-            HullScriptChase.gameObject.GetComponent<ChangeAssets>().ChangeSpriteEnemyShipDamage();
-            HullScriptShooter.gameObject.GetComponent<ChangeAssets>().ChangeSpriteEnemyShipDamage();
-
-
-        }
-        if (lifeEnemy == 1)
-        {
-
-            HullScriptShooter.gameObject.GetComponent<ChangeAssets>().ChangeSpriteEnemyShipAlmost();
-            HullScriptChase.gameObject.GetComponent<ChangeAssets>().ChangeSpriteEnemyShipAlmost();
-            SailScriptChase.gameObject.GetComponent<ChangeAssets>().ChangeSpriteEnemyShipAlmost();
-            SailScriptShooter.gameObject.GetComponent<ChangeAssets>().ChangeSpriteEnemyShipAlmost();
-
-        }
+        SailScriptChase.ChangeSpriteSnailWalk();
+        SailScriptShooter.ChangeSpriteSnailWalk();
     }
 } //gameObject.GetComponent<ChangeAssets>().ChangeSpriteSnailWalk();

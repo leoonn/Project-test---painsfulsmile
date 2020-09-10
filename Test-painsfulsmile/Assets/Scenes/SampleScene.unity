@@ -935,7 +935,6 @@ MonoBehaviour:
   - {fileID: 21300000, guid: ea18fa60ae60eb640b6c90d75d6f98be, type: 3}
   - {fileID: 21300000, guid: 78a66a17c4f6f4f4ca7976d7525d9be6, type: 3}
   - {fileID: 21300000, guid: b356318f18f1b724ab74d5c424028557, type: 3}
-  - {fileID: 21300000, guid: fb53cd613cdbbd0409c5b66b716df308, type: 3}
 --- !u!1 &1200279347 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1590784745698749873, guid: 5179c3841a567744d9f938af941cfabf,
@@ -1110,7 +1109,6 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 1d710aa47444b4a42bb6339988ed9222, type: 3}
   - {fileID: 21300000, guid: bb5997364741078458edaaf93b9b0a91, type: 3}
   - {fileID: 21300000, guid: 033ceb2c5ffc098429361f9f5e5045fc, type: 3}
-  - {fileID: 21300000, guid: d25a93ef515e1aa4095ceca34b35810d, type: 3}
 --- !u!1 &1477329059 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1590784744812150971, guid: 5179c3841a567744d9f938af941cfabf,
@@ -2395,11 +2393,6 @@ PrefabInstance:
       propertyPath: Exitdistance
       value: 7
       objectReference: {fileID: 0}
-    - target: {fileID: 6011131393824910928, guid: 9ba0ae1d94f80ca479cb11b0dbd4cc8d,
-        type: 3}
-      propertyPath: m_TagString
-      value: Hull
-      objectReference: {fileID: 0}
     - target: {fileID: 6011131395014652823, guid: 9ba0ae1d94f80ca479cb11b0dbd4cc8d,
         type: 3}
       propertyPath: player
@@ -2574,11 +2567,6 @@ PrefabInstance:
         type: 3}
       propertyPath: startTimePoint
       value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 6011131395737313447, guid: 9ba0ae1d94f80ca479cb11b0dbd4cc8d,
-        type: 3}
-      propertyPath: lifeEnemy
-      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 6011131395737313465, guid: 9ba0ae1d94f80ca479cb11b0dbd4cc8d,
         type: 3}
@@ -2894,7 +2882,7 @@ PrefabInstance:
     - target: {fileID: 288892479998120289, guid: 5b52eef6fae18c044b904807d8cccb4c,
         type: 3}
       propertyPath: m_Name
-      value: sail enemy chase
+      value: sailSmallIdle enemy chase
       objectReference: {fileID: 0}
     - target: {fileID: 8935968234362121305, guid: 5b52eef6fae18c044b904807d8cccb4c,
         type: 3}
@@ -2996,11 +2984,6 @@ PrefabInstance:
       propertyPath: startTimePoint
       value: 3
       objectReference: {fileID: 0}
-    - target: {fileID: 8935968234362121305, guid: 5b52eef6fae18c044b904807d8cccb4c,
-        type: 3}
-      propertyPath: lifeEnemy
-      value: 5
-      objectReference: {fileID: 0}
     - target: {fileID: 8935968234362121314, guid: 5b52eef6fae18c044b904807d8cccb4c,
         type: 3}
       propertyPath: m_Name
@@ -3060,11 +3043,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 90.00001
-      objectReference: {fileID: 0}
-    - target: {fileID: 8935968235206759045, guid: 5b52eef6fae18c044b904807d8cccb4c,
-        type: 3}
-      propertyPath: m_TagString
-      value: Hull
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 8935968234362121317, guid: 5b52eef6fae18c044b904807d8cccb4c, type: 3}

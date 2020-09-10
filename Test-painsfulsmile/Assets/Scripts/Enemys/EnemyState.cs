@@ -20,6 +20,5 @@ public enum enemyType
 {
     shooter,
     chase,
-    patrol,
-    dead
+    patrol
 }

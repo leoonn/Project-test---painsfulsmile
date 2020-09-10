@@ -7,9 +7,6 @@ TagManager:
   - Shooter
   - Chase
   - Sail
-  - Hull
-  - BulletPlayer
-  - Dead
   layers:
   - Default
   - TransparentFX

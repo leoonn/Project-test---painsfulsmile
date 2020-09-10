@@ -8,7 +8,7 @@ public class ChangeAssets : MonoBehaviour
     public Sprite[] newAssets;
     void Start()
     {
-        originalsAssets = gameObject.GetComponent<SpriteRenderer>();    
+        originalsAssets = gameObject.GetComponent<SpriteRenderer>();
        
     }
 
@@ -33,44 +33,5 @@ public class ChangeAssets : MonoBehaviour
             originalsAssets.sprite = newAssets[2];
         }
         
-    }
-
-    public void ChangeSpriteEnemyDeath()
-    {
-        if (gameObject.tag == "Hull")
-        {
-            originalsAssets.sprite = newAssets[0];
-            gameObject.tag = "Dead";
-        }
-        if (gameObject.tag == "Sail")
-        {
-            originalsAssets.sprite = newAssets[3];
-            gameObject.tag = "Dead";
-
-        }
-
-    }
-    public void ChangeSpriteEnemyShipAlmost()
-    {
-        if (gameObject.tag == "Hull")
-        {
-            originalsAssets.sprite = newAssets[2];
-
-            if (gameObject.tag == "Sail")
-            {
-
-                originalsAssets.sprite = newAssets[1];
-            }
-        }
-
-    }
-    public void ChangeSpriteEnemyShipDamage()
-    {
-        if (gameObject.tag == "Hull")
-        {
-            originalsAssets.sprite = newAssets[1];
-        }
-        
-
     }
 }

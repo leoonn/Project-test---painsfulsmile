@@ -9,6 +9,7 @@ TagManager:
   - Sail
   - Hull
   - BulletPlayer
+  - BulletEnemy
   layers:
   - Default
   - TransparentFX

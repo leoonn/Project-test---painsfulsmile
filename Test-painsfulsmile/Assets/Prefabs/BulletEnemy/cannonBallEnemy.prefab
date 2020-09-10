@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 3180479302418542987}
   m_Layer: 0
   m_Name: cannonBallEnemy
-  m_TagString: Untagged
+  m_TagString: BulletEnemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -134,8 +134,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Bullet: {fileID: 8249334886167355076}
-  BulletFliped: {fileID: 8249334886167355076, guid: 57534c04848e80b4ca4f48ac5b3b95a8,
-    type: 3}
   speedBullet: 10
   lifeBullet: 3
-  player: {fileID: 0}

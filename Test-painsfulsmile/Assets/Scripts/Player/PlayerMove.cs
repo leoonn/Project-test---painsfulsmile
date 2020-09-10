@@ -11,10 +11,16 @@ public class PlayerMove : MonoBehaviour
 
     ChangeAssets SailScript;
 
+    public int lifePlayer;
+    ChangeAssets HullScript;
+
+    public GameObject explosion;
     void Start()
     {
         rb = gameObject.GetComponent<Rigidbody2D>();
         SailScript = GameObject.Find("sailSmallIdle").GetComponent<ChangeAssets>();
+        HullScript = GameObject.Find("hullLargefull").GetComponent<ChangeAssets>();
+        lifePlayer = 10;
     }
 
     // Update is called once per frame
@@ -22,6 +28,7 @@ public class PlayerMove : MonoBehaviour
     {
         Move();
         Rotation();
+        LifeManager();
     }
 
     void Move()
@@ -55,5 +62,34 @@ public class PlayerMove : MonoBehaviour
             transform.Rotate(new Vector3(0, 0, -1) * Time.deltaTime * speedRot, Space.Self);
             SailScript.ChangeSpriteSnailWalk();
         }
+    }
+
+    private void OnTriggerEnter2D(Collider2D col)
+    {
+        if (col.gameObject.CompareTag("BulletEnemy"))
+        {
+
+            lifePlayer--;
+            GameObject explo = Instantiate(explosion, col.transform.position, Quaternion.identity);
+            Destroy(explo, 0.5f);
+            Destroy(col.gameObject);
+        }
+    }
+    void LifeManager()
+    {
+        if (lifePlayer == 7)
+        {
+            HullScript.GetComponent<ChangeAssets>().ChangeSpriteHullDamage();
+        }
+        if (lifePlayer == 4)
+        {
+            HullScript.GetComponent<ChangeAssets>().ChangeSpriteHullAlmost();
+        }
+        if (lifePlayer == 0)
+        {
+           
+            HullScript.GetComponent<ChangeAssets>().ChangeSpriteHullDead();
+        }
+
     }
 }

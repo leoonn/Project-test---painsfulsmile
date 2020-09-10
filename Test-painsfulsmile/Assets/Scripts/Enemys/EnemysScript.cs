@@ -5,7 +5,7 @@ using UnityEngine;
 public class EnemysScript : Shoot
 {
 
-    public Transform player;
+    private Transform player;
     public float speedEnemy = 5;
     float waitTimePoint;
     public float startTimePoint;
@@ -30,6 +30,11 @@ public class EnemysScript : Shoot
     public Transform HullScript;
 
     public int lifeEnemy;
+
+     Collider2D colEnemy;
+    EnemysScript enemyScript;
+
+    public GameObject explosion;
     void Start()
     {
         waitTimePoint = startTimePoint;
@@ -41,6 +46,11 @@ public class EnemysScript : Shoot
         HullScript = this.gameObject.transform.GetChild(1);
 
         lifeEnemy = 5;
+
+        colEnemy = gameObject.GetComponent<Collider2D>();
+        enemyScript = gameObject.GetComponent<EnemysScript>();
+
+        player = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
     }
 
     // Update is called once per frame
@@ -145,6 +155,9 @@ public class EnemysScript : Shoot
                 break;
             case enemyType.dead:
                 SailScript.GetComponent<ChangeAssets>().ChangeSpriteHullDead();
+                colEnemy.enabled = false;
+                enemyScript.enabled = false;
+                Destroy(gameObject,5);
                 break;
 
         }
@@ -177,7 +190,8 @@ public class EnemysScript : Shoot
         if (col.gameObject.CompareTag ("BulletPlayer"))
         {
             lifeEnemy--;
-            
+            GameObject explo = Instantiate(explosion, col.transform.position, Quaternion.identity);
+            Destroy(explo, 0.5f);
             Destroy(col.gameObject);
         }
     }

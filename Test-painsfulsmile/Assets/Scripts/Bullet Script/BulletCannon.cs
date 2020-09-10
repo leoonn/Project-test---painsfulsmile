@@ -11,6 +11,8 @@ public class BulletCannon : MonoBehaviour
     Rigidbody2D BulletRb;
     public float lifeBullet = 10f;
 
+   
+
     private void Awake()
     {
         BulletRb = GetComponent<Rigidbody2D>(); //get component Rigidbody
@@ -26,6 +28,8 @@ public class BulletCannon : MonoBehaviour
         }
        
     }
+
+    
     void Start()
     {
         

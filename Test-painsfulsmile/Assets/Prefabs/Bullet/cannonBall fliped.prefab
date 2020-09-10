@@ -100,6 +100,8 @@ MonoBehaviour:
   BulletFliped: {fileID: 8249334886167355076}
   speedBullet: -15
   lifeBullet: 3
+  Explosion: {fileID: 992450673511755429, guid: cd5e97f9e21ac5c4492f292bf01f78a1,
+    type: 3}
 --- !u!50 &-4100656734499994997
 Rigidbody2D:
   serializedVersion: 4

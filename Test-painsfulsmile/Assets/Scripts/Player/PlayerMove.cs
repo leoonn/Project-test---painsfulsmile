@@ -9,18 +9,27 @@ public class PlayerMove : MonoBehaviour
     public float speed =2;
     public int speedRot = 50;
 
-    ChangeAssets SailScript;
+    
 
     public int lifePlayer;
-    ChangeAssets HullScript;
+    
 
     public GameObject explosion;
+    PlayerMove playerScript;
+
+    [HideInInspector]
+    public Transform SailScript;
+
+    [HideInInspector]
+    public Transform HullScript;
     void Start()
     {
         rb = gameObject.GetComponent<Rigidbody2D>();
-        SailScript = GameObject.Find("sailSmallIdle").GetComponent<ChangeAssets>();
-        HullScript = GameObject.Find("hullLargefull").GetComponent<ChangeAssets>();
+        SailScript = this.gameObject.transform.GetChild(2);
+        HullScript = this.gameObject.transform.GetChild(1);
         lifePlayer = 10;
+
+        playerScript = gameObject.GetComponent<PlayerMove>();
     }
 
     // Update is called once per frame
@@ -37,12 +46,12 @@ public class PlayerMove : MonoBehaviour
         {
             //rb.velocity = (Vector2.right * speed);
             transform.Translate(new Vector3(0,-1, 0) * Time.deltaTime * speed, Space.Self);
-            SailScript.ChangeSpriteSnailWalk();
+            SailScript.GetComponent<ChangeAssets>().ChangeSpriteSnailWalk();
         }
         else
         {
             rb.velocity = Vector2.zero;
-            SailScript.ChangeSpriteSnailIdle();
+            SailScript.GetComponent<ChangeAssets>().ChangeSpriteSnailIdle();
         }
     }
 
@@ -53,14 +62,14 @@ public class PlayerMove : MonoBehaviour
            
             
             transform.Rotate(new Vector3(0,0 , 1) * Time.deltaTime  * speedRot, Space.Self);
-            SailScript.ChangeSpriteSnailWalk();
+            SailScript.GetComponent<ChangeAssets>().ChangeSpriteSnailWalk();
         }
 
         if (Input.GetButton("RightMove"))
         {
             
             transform.Rotate(new Vector3(0, 0, -1) * Time.deltaTime * speedRot, Space.Self);
-            SailScript.ChangeSpriteSnailWalk();
+            SailScript.GetComponent<ChangeAssets>().ChangeSpriteSnailWalk();
         }
     }
 
@@ -73,6 +82,15 @@ public class PlayerMove : MonoBehaviour
             GameObject explo = Instantiate(explosion, col.transform.position, Quaternion.identity);
             Destroy(explo, 0.5f);
             Destroy(col.gameObject);
+        }
+        
+    }
+
+    private void OnCollisionEnter2D(Collision2D coll)
+    {
+        if (coll.gameObject.CompareTag("Chase"))
+        {
+            lifePlayer = 0;
         }
     }
     void LifeManager()
@@ -87,8 +105,10 @@ public class PlayerMove : MonoBehaviour
         }
         if (lifePlayer == 0)
         {
-           
+            Destroy(gameObject,1);
             HullScript.GetComponent<ChangeAssets>().ChangeSpriteHullDead();
+            rb.velocity = Vector2.zero;
+            playerScript.enabled = false;
         }
 
     }

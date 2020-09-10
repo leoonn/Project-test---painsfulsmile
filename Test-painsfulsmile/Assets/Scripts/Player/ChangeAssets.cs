@@ -56,6 +56,7 @@ public class ChangeAssets : MonoBehaviour
         {
             originalsAssets.sprite = newAssets[1];
         }
+       
 
     }
     public void ChangeSpriteHullDead()
@@ -64,6 +65,7 @@ public class ChangeAssets : MonoBehaviour
         {
             originalsAssets.sprite = newAssets[0];
         }
+        
 
     }
 

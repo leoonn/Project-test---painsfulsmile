@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2747865045210286893}
   - component: {fileID: 2747865045210286894}
   m_Layer: 0
-  m_Name: sailSmallIdle enemy shooter
+  m_Name: sail enemy shooter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -92,7 +92,7 @@ GameObject:
   - component: {fileID: 6011131393824910930}
   - component: {fileID: 6011131393824910931}
   m_Layer: 0
-  m_Name: hullLargefull enemy shooter
+  m_Name: hull enemy shooter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -861,3 +861,4 @@ MonoBehaviour:
   retraetDistance: 4
   nearDistance: 5
   Exitdistance: 10
+  lifeEnemy: 0

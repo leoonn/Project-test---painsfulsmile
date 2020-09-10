@@ -173,7 +173,6 @@ GameObject:
   - component: {fileID: 8935968234362121318}
   - component: {fileID: 8935968234362121319}
   - component: {fileID: 8935968234362121316}
-  - component: {fileID: 8935968234362121317}
   - component: {fileID: 8935968234362121305}
   m_Layer: 0
   m_Name: Enemy chase
@@ -237,26 +236,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &8935968234362121317
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8935968234362121314}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 00495021b8bb6b44f926974f79561789, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  originalsAssets: {fileID: 0}
-  newAssets:
-  - {fileID: 21300000, guid: d8b607dd46356bb4c847fad9705fa049, type: 3}
-  - {fileID: 21300000, guid: 666921b16b180b04c85add17582adb6c, type: 3}
-  - {fileID: 21300000, guid: 009c7e9a92fc2734d8ada03ddbd08fd5, type: 3}
-  - {fileID: 21300000, guid: 1d710aa47444b4a42bb6339988ed9222, type: 3}
-  - {fileID: 21300000, guid: bb5997364741078458edaaf93b9b0a91, type: 3}
-  - {fileID: 21300000, guid: 033ceb2c5ffc098429361f9f5e5045fc, type: 3}
 --- !u!114 &8935968234362121305
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -303,6 +282,7 @@ MonoBehaviour:
   retraetDistance: 10
   nearDistance: 5
   Exitdistance: 10
+  SailScript: {fileID: 0}
 --- !u!1 &8935968235206759045
 GameObject:
   m_ObjectHideFlags: 0

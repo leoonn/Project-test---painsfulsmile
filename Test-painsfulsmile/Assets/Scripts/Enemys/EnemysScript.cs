@@ -23,8 +23,8 @@ public class EnemysScript : Shoot
     public float nearDistance = 4;
     public float Exitdistance = 6;
 
-    ChangeAssets SailScriptChase;
-    ChangeAssets SailScriptShooter;
+    public Transform SailScript;
+    
 
     void Start()
     {
@@ -33,8 +33,8 @@ public class EnemysScript : Shoot
         RandomPoint = Random.Range(0, movepoint.Length);
         timeShot = startTimeShots;
 
-        SailScriptChase = GameObject.Find("sailSmallIdle enemy chase").GetComponent<ChangeAssets>();
-        SailScriptShooter = GameObject.Find("sailSmallIdle enemy shooter").GetComponent<ChangeAssets>();
+        SailScript = this.gameObject.transform.GetChild(2);
+        
     }
 
     // Update is called once per frame
@@ -144,8 +144,8 @@ public class EnemysScript : Shoot
     void FollowPlayer(Vector2 player)
     {
         transform.position = Vector2.MoveTowards(transform.position, player, speedEnemy * Time.deltaTime);
-        SailScriptChase.ChangeSpriteSnailWalk();
-        SailScriptShooter.ChangeSpriteSnailWalk();
+        //SailScriptChase.ChangeSpriteSnailWalk();
+        //SailScriptShooter.ChangeSpriteSnailWalk();
     }
     void RotateForPlayer(Vector2 player)
     {
@@ -154,14 +154,14 @@ public class EnemysScript : Shoot
         direction.Normalize();
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg; // convert radians in constant
         transform.rotation = Quaternion.Euler(Vector3.forward * (angle + offset));
-        SailScriptChase.ChangeSpriteSnailWalk();
-        SailScriptShooter.ChangeSpriteSnailWalk();
+        //SailScriptChase.ChangeSpriteSnailWalk();
+        //SailScriptShooter.ChangeSpriteSnailWalk();
     }
     void FollowMovePoint(Vector2 movepoint)
     {
 
         transform.position = Vector2.MoveTowards(transform.position, movepoint, speedEnemy * Time.deltaTime);
-        SailScriptChase.ChangeSpriteSnailWalk();
-        SailScriptShooter.ChangeSpriteSnailWalk();
+        SailScript.GetComponent<ChangeAssets>().ChangeSpriteSnailWalk();
+        //SailScriptShooter.ChangeSpriteSnailWalk();
     }
 } //gameObject.GetComponent<ChangeAssets>().ChangeSpriteSnailWalk();

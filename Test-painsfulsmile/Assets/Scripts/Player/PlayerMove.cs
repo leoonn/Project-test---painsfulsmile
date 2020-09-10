@@ -6,7 +6,7 @@ public class PlayerMove : MonoBehaviour
 {
 
     Rigidbody2D rb;
-    public int speed =2;
+    public float speed =2;
     public int speedRot = 50;
 
     ChangeAssets SailScript;

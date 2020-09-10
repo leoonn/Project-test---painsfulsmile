@@ -723,7 +723,6 @@ GameObject:
   - component: {fileID: 6011131395737313444}
   - component: {fileID: 6011131395737313445}
   - component: {fileID: 6011131395737313466}
-  - component: {fileID: 6011131395737313464}
   - component: {fileID: 6011131395737313447}
   m_Layer: 0
   m_Name: Enemy shooter
@@ -791,26 +790,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &6011131395737313464
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6011131395737313465}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 00495021b8bb6b44f926974f79561789, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  originalsAssets: {fileID: 0}
-  newAssets:
-  - {fileID: 21300000, guid: d8b607dd46356bb4c847fad9705fa049, type: 3}
-  - {fileID: 21300000, guid: 666921b16b180b04c85add17582adb6c, type: 3}
-  - {fileID: 21300000, guid: 009c7e9a92fc2734d8ada03ddbd08fd5, type: 3}
-  - {fileID: 21300000, guid: ea18fa60ae60eb640b6c90d75d6f98be, type: 3}
-  - {fileID: 21300000, guid: 78a66a17c4f6f4f4ca7976d7525d9be6, type: 3}
-  - {fileID: 21300000, guid: b356318f18f1b724ab74d5c424028557, type: 3}
 --- !u!114 &6011131395737313447
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -861,3 +840,4 @@ MonoBehaviour:
   retraetDistance: 4
   nearDistance: 5
   Exitdistance: 10
+  SailScript: {fileID: 0}

@@ -34,4 +34,37 @@ public class ChangeAssets : MonoBehaviour
         }
         
     }
+    public void ChangeSpriteSnailDead()
+    {
+        if (gameObject.tag == "Sail")
+        {
+            originalsAssets.sprite = newAssets[3];
+        }
+
+    }
+    public void ChangeSpriteHullDamage()
+    {
+        if (gameObject.tag == "Hull")
+        {
+            originalsAssets.sprite = newAssets[2];
+        }
+
+    }
+    public void ChangeSpriteHullAlmost()
+    {
+        if (gameObject.tag == "Hull")
+        {
+            originalsAssets.sprite = newAssets[1];
+        }
+
+    }
+    public void ChangeSpriteHullDead()
+    {
+        if (gameObject.tag == "Hull")
+        {
+            originalsAssets.sprite = newAssets[0];
+        }
+
+    }
+
 }

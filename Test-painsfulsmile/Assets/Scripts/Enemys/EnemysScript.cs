@@ -23,9 +23,13 @@ public class EnemysScript : Shoot
     public float nearDistance = 4;
     public float Exitdistance = 6;
 
+    [HideInInspector ]
     public Transform SailScript;
-    
 
+    [HideInInspector]
+    public Transform HullScript;
+
+    public int lifeEnemy;
     void Start()
     {
         waitTimePoint = startTimePoint;
@@ -34,14 +38,16 @@ public class EnemysScript : Shoot
         timeShot = startTimeShots;
 
         SailScript = this.gameObject.transform.GetChild(2);
-        
+        HullScript = this.gameObject.transform.GetChild(1);
+
+        lifeEnemy = 5;
     }
 
     // Update is called once per frame
     void Update()
     {
         AIState();
-
+        LifeManager();
     }
 
     void AIState()
@@ -137,6 +143,9 @@ public class EnemysScript : Shoot
                     Type = enemyType.patrol;
                 }
                 break;
+            case enemyType.dead:
+                SailScript.GetComponent<ChangeAssets>().ChangeSpriteHullDead();
+                break;
 
         }
 
@@ -144,8 +153,7 @@ public class EnemysScript : Shoot
     void FollowPlayer(Vector2 player)
     {
         transform.position = Vector2.MoveTowards(transform.position, player, speedEnemy * Time.deltaTime);
-        //SailScriptChase.ChangeSpriteSnailWalk();
-        //SailScriptShooter.ChangeSpriteSnailWalk();
+        
     }
     void RotateForPlayer(Vector2 player)
     {
@@ -154,14 +162,42 @@ public class EnemysScript : Shoot
         direction.Normalize();
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg; // convert radians in constant
         transform.rotation = Quaternion.Euler(Vector3.forward * (angle + offset));
-        //SailScriptChase.ChangeSpriteSnailWalk();
-        //SailScriptShooter.ChangeSpriteSnailWalk();
+        
     }
     void FollowMovePoint(Vector2 movepoint)
     {
 
         transform.position = Vector2.MoveTowards(transform.position, movepoint, speedEnemy * Time.deltaTime);
         SailScript.GetComponent<ChangeAssets>().ChangeSpriteSnailWalk();
-        //SailScriptShooter.ChangeSpriteSnailWalk();
+        
     }
+
+    private void OnTriggerEnter2D(Collider2D col)
+    {
+        if (col.gameObject.CompareTag ("BulletPlayer"))
+        {
+            lifeEnemy--;
+            
+            Destroy(col.gameObject);
+        }
+    }
+
+    void LifeManager()
+    {
+        if (lifeEnemy == 3)
+        {
+            HullScript.GetComponent<ChangeAssets>().ChangeSpriteHullDamage();
+        }
+        if (lifeEnemy == 1)
+        {
+            HullScript.GetComponent<ChangeAssets>().ChangeSpriteHullAlmost();
+        }
+        if (lifeEnemy == 0)
+        {
+            Type = enemyType.dead;
+            HullScript.GetComponent<ChangeAssets>().ChangeSpriteHullDead();
+        }
+
+    }
+
 } //gameObject.GetComponent<ChangeAssets>().ChangeSpriteSnailWalk();

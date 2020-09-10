@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class ChangeAssets : MonoBehaviour
 {
-    public SpriteRenderer []originalsAssets;
+    public SpriteRenderer originalsAssets;
     public Sprite[] newAssets;
     void Start()
     {
-        originalsAssets[0] = GameObject.Find("hullLargefull").GetComponent<SpriteRenderer>();
-        originalsAssets[1] = GameObject.Find("sailSmallIdle").GetComponent<SpriteRenderer>();
+        originalsAssets = gameObject.GetComponent<SpriteRenderer>();
+       
     }
 
     // Update is called once per frame
@@ -19,11 +19,19 @@ public class ChangeAssets : MonoBehaviour
     }
     public void ChangeSpriteSnailWalk()
     {
-       originalsAssets[1].sprite = newAssets[3];
+        if (gameObject.tag == "Sail")
+        {
+            originalsAssets.sprite = newAssets[0];
+        }
+      
        
     }
     public void ChangeSpriteSnailIdle()
     {
-        originalsAssets[1].sprite = newAssets[5];
+        if (gameObject.tag == "Sail")
+        {
+            originalsAssets.sprite = newAssets[2];
+        }
+        
     }
 }

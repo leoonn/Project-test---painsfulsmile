@@ -9,12 +9,12 @@ public class PlayerMove : MonoBehaviour
     public int speed =2;
     public int speedRot = 50;
 
-    ChangeAssets AssetsScript;
+    ChangeAssets SailScript;
 
     void Start()
     {
         rb = gameObject.GetComponent<Rigidbody2D>();
-        AssetsScript = gameObject.GetComponent<ChangeAssets>();
+        SailScript = GameObject.Find("sailSmallIdle").GetComponent<ChangeAssets>();
     }
 
     // Update is called once per frame
@@ -30,12 +30,12 @@ public class PlayerMove : MonoBehaviour
         {
             //rb.velocity = (Vector2.right * speed);
             transform.Translate(new Vector3(0,-1, 0) * Time.deltaTime * speed, Space.Self);
-            AssetsScript.ChangeSpriteSnailWalk();
+            SailScript.ChangeSpriteSnailWalk();
         }
         else
         {
             rb.velocity = Vector2.zero;
-            AssetsScript.ChangeSpriteSnailIdle();
+            SailScript.ChangeSpriteSnailIdle();
         }
     }
 
@@ -46,14 +46,14 @@ public class PlayerMove : MonoBehaviour
            
             
             transform.Rotate(new Vector3(0,0 , 1) * Time.deltaTime  * speedRot, Space.Self);
-            AssetsScript.ChangeSpriteSnailWalk();
+            SailScript.ChangeSpriteSnailWalk();
         }
 
         if (Input.GetButton("RightMove"))
         {
             
             transform.Rotate(new Vector3(0, 0, -1) * Time.deltaTime * speedRot, Space.Self);
-            AssetsScript.ChangeSpriteSnailWalk();
+            SailScript.ChangeSpriteSnailWalk();
         }
     }
 }

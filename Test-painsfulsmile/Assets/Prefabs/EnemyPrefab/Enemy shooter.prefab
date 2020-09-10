@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2747865045210286893}
   - component: {fileID: 2747865045210286894}
   m_Layer: 0
-  m_Name: sailSmallIdle enemy
+  m_Name: sailSmallIdle enemy shooter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -92,7 +92,7 @@ GameObject:
   - component: {fileID: 6011131393824910930}
   - component: {fileID: 6011131393824910931}
   m_Layer: 0
-  m_Name: hullLargefull enemy
+  m_Name: hullLargefull enemy shooter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -803,9 +803,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00495021b8bb6b44f926974f79561789, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  originalsAssets:
-  - {fileID: 6011131393824910931}
-  - {fileID: 2747865045210286894}
+  originalsAssets: {fileID: 0}
   newAssets:
   - {fileID: 21300000, guid: d8b607dd46356bb4c847fad9705fa049, type: 3}
   - {fileID: 21300000, guid: 666921b16b180b04c85add17582adb6c, type: 3}

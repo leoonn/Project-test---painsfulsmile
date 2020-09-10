@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Shooter
   - Chase
+  - Sail
   layers:
   - Default
   - TransparentFX

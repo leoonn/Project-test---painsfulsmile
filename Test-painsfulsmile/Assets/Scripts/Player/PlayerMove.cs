@@ -46,12 +46,14 @@ public class PlayerMove : MonoBehaviour
            
             
             transform.Rotate(new Vector3(0,0 , 1) * Time.deltaTime  * speedRot, Space.Self);
+            AssetsScript.ChangeSpriteSnailWalk();
         }
 
         if (Input.GetButton("RightMove"))
         {
             
             transform.Rotate(new Vector3(0, 0, -1) * Time.deltaTime * speedRot, Space.Self);
+            AssetsScript.ChangeSpriteSnailWalk();
         }
     }
 }

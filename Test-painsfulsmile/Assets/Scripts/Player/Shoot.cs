@@ -4,18 +4,19 @@ using UnityEngine;
 
 public class Shoot : MonoBehaviour
 {
-    public Transform[] Gunplayer; //player position
+    public Transform[] Gun; //player position
     public GameObject bulletprefab;
     public GameObject BulletFlipedPrefab;
-    public float fireRate = 25f;
-    public float countTime;
+ 
+    public float timeShot;
+    public float startTimeShots;
 
 
 
 
     void Start()
     {
-
+        timeShot = startTimeShots;
 
     }
 
@@ -27,26 +28,28 @@ public class Shoot : MonoBehaviour
     }
     public void Shooter() //method shoot
     {
-        if (Input.GetButton("Shoot") && countTime > fireRate) // if true ? shoot !!
+        if (Input.GetButton("Shoot") && timeShot <= 0 ) // if true ? shoot !!
         {
 
-            Instantiate(bulletprefab, Gunplayer[0].position, Gunplayer[0].rotation); //instanteate one bullet
-            Instantiate(bulletprefab, Gunplayer[1].position, Gunplayer[1].rotation); //instanteate one bullet
-            Instantiate(BulletFlipedPrefab, Gunplayer[2].position, Gunplayer[2].rotation); //instanteate one bullet
-            Instantiate(bulletprefab, Gunplayer[3].position, Gunplayer[3].rotation); //instanteate one bullet
-            ResetTime(); //call the method 
-            //fire.Play(); //play particle of bullet
+            Instantiate(bulletprefab, Gun[0].position, Gun[0].rotation); //instanteate one bullet
+            Instantiate(bulletprefab, Gun[1].position, Gun[1].rotation); //instanteate one bullet
+            Instantiate(BulletFlipedPrefab, Gun[2].position, Gun[2].rotation); //instanteate one bullet
+            Instantiate(bulletprefab, Gun[3].position, Gun[3].rotation); //instanteate one bullet
+            
+            
+            timeShot = startTimeShots;
+        }else
+        {
+            timeShot -= Time.deltaTime;   
 
         }
 
-        countTime++;
-        Debug.Log(countTime + "time");
+       
+        
     }
 
-    public void ResetTime() //reset the time shoot
-    {
-        countTime = 0f;
-    }
+    
+
 
 
 }

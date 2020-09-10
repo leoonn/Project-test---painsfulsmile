@@ -19,7 +19,8 @@ public class ChangeAssets : MonoBehaviour
     }
     public void ChangeSpriteSnailWalk()
     {
-        originalsAssets[1].sprite = newAssets[3];
+       originalsAssets[1].sprite = newAssets[3];
+       
     }
     public void ChangeSpriteSnailIdle()
     {

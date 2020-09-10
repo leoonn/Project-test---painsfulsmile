@@ -838,7 +838,7 @@ MonoBehaviour:
   startTimeShots: 2
   player: {fileID: 1590784745262666423, guid: 5179c3841a567744d9f938af941cfabf, type: 3}
   speedEnemy: 1.25
-  startTimePoint: 0
+  startTimePoint: 3
   movepoint:
   - {fileID: 9121446513168425348, guid: 94f6189f069d4794dbb49a3aa351a656, type: 3}
   - {fileID: 5312407848737130317, guid: 4e4ad5d71aaae9241b459ab44b1b15ad, type: 3}
@@ -861,5 +861,5 @@ MonoBehaviour:
   Type: 2
   stopDistance: 6
   retraetDistance: 4
-  nearDistance: 3
-  Exitdistance: 6
+  nearDistance: 5
+  Exitdistance: 10

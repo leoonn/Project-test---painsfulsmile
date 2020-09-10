@@ -253,12 +253,12 @@ MonoBehaviour:
   - {fileID: 8935968235206759044}
   - {fileID: 288892479998120288}
   newAssets:
-  - {fileID: 21300000, guid: 1d7495101485dc9449451f2ab53ef437, type: 3}
-  - {fileID: 21300000, guid: 1d7495101485dc9449451f2ab53ef437, type: 3}
-  - {fileID: 21300000, guid: 76c078de5561bb0408d7a85fe50bd4fe, type: 3}
-  - {fileID: 21300000, guid: 76c078de5561bb0408d7a85fe50bd4fe, type: 3}
-  - {fileID: 21300000, guid: 76c078de5561bb0408d7a85fe50bd4fe, type: 3}
-  - {fileID: 21300000, guid: 955e5b1739b25884c83ee22ab6cb18a6, type: 3}
+  - {fileID: 21300000, guid: d8b607dd46356bb4c847fad9705fa049, type: 3}
+  - {fileID: 21300000, guid: 666921b16b180b04c85add17582adb6c, type: 3}
+  - {fileID: 21300000, guid: 009c7e9a92fc2734d8ada03ddbd08fd5, type: 3}
+  - {fileID: 21300000, guid: 1d710aa47444b4a42bb6339988ed9222, type: 3}
+  - {fileID: 21300000, guid: bb5997364741078458edaaf93b9b0a91, type: 3}
+  - {fileID: 21300000, guid: 033ceb2c5ffc098429361f9f5e5045fc, type: 3}
 --- !u!114 &8935968234362121305
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -280,7 +280,7 @@ MonoBehaviour:
   startTimeShots: 2
   player: {fileID: 1590784745262666423, guid: 5179c3841a567744d9f938af941cfabf, type: 3}
   speedEnemy: 1.25
-  startTime: 5
+  startTimePoint: 3
   movepoint:
   - {fileID: 9121446513168425348, guid: 94f6189f069d4794dbb49a3aa351a656, type: 3}
   - {fileID: 5312407848737130317, guid: 4e4ad5d71aaae9241b459ab44b1b15ad, type: 3}
@@ -303,8 +303,8 @@ MonoBehaviour:
   Type: 2
   stopDistance: 6
   retraetDistance: 10
-  nearDistance: 3
-  Exitdistance: 6
+  nearDistance: 5
+  Exitdistance: 10
 --- !u!1 &8935968235206759045
 GameObject:
   m_ObjectHideFlags: 0

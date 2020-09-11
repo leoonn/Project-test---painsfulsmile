@@ -205,8 +205,7 @@ public class EnemysScript : Shoot
         }
         if (col.gameObject.CompareTag("BulletPlayer") && lifeEnemy == 0)
         {
-            pontuationScript.points += pontuationScript.pointsEnemy;
-            pontuationScript.ScoreText.text = pontuationScript.points.ToString();
+            pontuationScript.GetPontuation();
         }
     }
 
@@ -215,6 +214,11 @@ public class EnemysScript : Shoot
         if (coll.gameObject.CompareTag("Islands"))
         {
             lifeEnemy = 0;
+            if (Type == enemyType.chase || Type == enemyType.shooter)
+            {
+                pontuationScript.GetPontuation();
+                
+            }
         }
     }
 

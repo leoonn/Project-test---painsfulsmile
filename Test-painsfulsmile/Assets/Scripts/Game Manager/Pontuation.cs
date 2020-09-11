@@ -19,4 +19,11 @@ public class Pontuation : MonoBehaviour
     {
         
     }
+   public void GetPontuation()
+    {
+        points += pointsEnemy;
+        ScoreText.text = points.ToString();
+    }
+
+    
 }

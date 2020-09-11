@@ -9,9 +9,11 @@ public class TimeManager : MonoBehaviour
     public  float timeGame = 30;
     public Text timeText;
     PlayerMove playerScript;
+    GameOver gameOverScript;
     void Start()
     {
         playerScript = GameObject.Find("Player").GetComponent<PlayerMove>();
+        gameOverScript = GameObject.Find("GameManager").GetComponent<GameOver>();
     }
 
     // Update is called once per frame
@@ -35,6 +37,7 @@ public class TimeManager : MonoBehaviour
             Time.timeScale = 0;
             playerScript.enabled = false;
             Debug.Log("GameOver");
+            gameOverScript.GameOverActive();
         }
         timeText.text = textTime;
     }

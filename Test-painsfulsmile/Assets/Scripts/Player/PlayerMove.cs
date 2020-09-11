@@ -23,7 +23,8 @@ public class PlayerMove : MonoBehaviour
 
     [HideInInspector]
     public Transform HullScript;
-    
+
+    GameOver gameOverScript;
     void Start()
     {
         rb = gameObject.GetComponent<Rigidbody2D>();
@@ -33,6 +34,8 @@ public class PlayerMove : MonoBehaviour
         playerScript = gameObject.GetComponent<PlayerMove>();
 
         playerScript.enabled = true;
+
+        gameOverScript = GameObject.Find("GameManager").GetComponent<GameOver>();
 
     }
 
@@ -123,13 +126,14 @@ public class PlayerMove : MonoBehaviour
             SailScript.GetComponent<ChangeAssets>().ChangeSpriteSailDead();
             rb.velocity = Vector2.zero;
             playerScript.enabled = false; 
-            Invoke("StopTime", 0.4f);
+            Invoke("GameOverTime", 0.7f);
         }
 
     }
 
-    void StopTime()
+    void GameOverTime()
     {
         Time.timeScale = 0;
+        gameOverScript.GameOverActive();
     }
 }

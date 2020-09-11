@@ -7,7 +7,8 @@ public class Shoot : MonoBehaviour
     public Transform[] Gun; //player position
     public GameObject bulletprefab;
     public GameObject BulletFlipedPrefab;
- 
+    
+    
     public float timeShot;
     public float startTimeShots;
 

@@ -35,6 +35,7 @@ public class EnemysScript : Shoot
     EnemysScript enemyScript;
 
     public GameObject explosion;
+    public GameObject bigExplosion;
     void Start()
     {
         waitTimePoint = startTimePoint;
@@ -210,6 +211,8 @@ public class EnemysScript : Shoot
         {
             Type = enemyType.dead;
             HullScript.GetComponent<ChangeAssets>().ChangeSpriteHullDead();
+            GameObject Bigexplo = Instantiate(bigExplosion, gameObject.transform.position, Quaternion.identity);
+            Destroy(Bigexplo, 0.5f);
         }
 
     }

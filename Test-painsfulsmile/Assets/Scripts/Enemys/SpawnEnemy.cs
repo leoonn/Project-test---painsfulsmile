@@ -7,7 +7,7 @@ public class SpawnEnemy : MonoBehaviour
     public GameObject[] Enemys;
     public Transform[] pointsSpawn;
 
-    float waitSpawn;
+     float waitSpawn;
     public float startSpawn;
 
     private int randomSpawn;
@@ -24,6 +24,7 @@ public class SpawnEnemy : MonoBehaviour
     void Update()
     {
         Spawn();
+        
     }
 
     void Spawn()

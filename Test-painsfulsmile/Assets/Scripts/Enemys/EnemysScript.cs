@@ -6,7 +6,9 @@ public class EnemysScript : Shoot
 {
 
     private Transform player;
-    public float speedEnemy = 5;
+
+    public float speedEnemy = 3;
+
     float waitTimePoint;
     public float startTimePoint;
 
@@ -60,7 +62,7 @@ public class EnemysScript : Shoot
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         AIState();
         LifeManager();
@@ -161,8 +163,7 @@ public class EnemysScript : Shoot
                 break;
             case enemyType.dead:
                 SailScript.GetComponent<ChangeAssets>().ChangeSpriteHullDead();
-                pontuationScript.points += pontuationScript.pointsEnemy;
-                pontuationScript.ScoreText.text = pontuationScript.points.ToString();
+                
                 colEnemy.enabled = false;
                 enemyScript.enabled = false;
                 Destroy(gameObject,5);
@@ -202,6 +203,11 @@ public class EnemysScript : Shoot
             Destroy(explo, 0.35f);
             Destroy(col.gameObject);
         }
+        if (col.gameObject.CompareTag("BulletPlayer") && lifeEnemy == 0)
+        {
+            pontuationScript.points += pontuationScript.pointsEnemy;
+            pontuationScript.ScoreText.text = pontuationScript.points.ToString();
+        }
     }
 
     private void OnCollisionEnter2D(Collision2D coll)
@@ -214,7 +220,7 @@ public class EnemysScript : Shoot
 
     void LifeManager()
     {
-        if (lifeEnemy == 3)
+        if (lifeEnemy == 2)
         {
             HullScript.GetComponent<ChangeAssets>().ChangeSpriteHullDamage();
             SailScript.GetComponent<ChangeAssets>().ChangeSpriteSailDamage();

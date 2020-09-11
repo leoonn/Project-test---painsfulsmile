@@ -400,6 +400,7 @@ MonoBehaviour:
   - {fileID: 6570148541616154217, guid: 165036927abec4048ab6e9354592ee49, type: 3}
   - {fileID: 5634770442403510448, guid: 6ae53145e96372f429a039ff13b5dac3, type: 3}
   - {fileID: 5308383752864661172, guid: 3111e250fbcc78e49b0cd1da348670ed, type: 3}
+  lifeEnemy: 3
   Type: 2
   stopDistance: 6
   retraetDistance: 4
@@ -407,7 +408,6 @@ MonoBehaviour:
   Exitdistance: 10
   SailScript: {fileID: 0}
   HullScript: {fileID: 0}
-  lifeEnemy: 5
   explosion: {fileID: 992450673511755429, guid: cd5e97f9e21ac5c4492f292bf01f78a1,
     type: 3}
   bigExplosion: {fileID: 992450673511755429, guid: d3e6a49432fbc674198301c2f03f274e,

@@ -13,6 +13,11 @@ public class SpawnEnemy : MonoBehaviour
     private int randomSpawn;
     private int randomEnemy;
 
+    private void Awake()
+    {
+        startSpawn = PlayerPrefs.GetFloat("TimeSpawn", 0);
+    }
+    
     void Start()
     {
         waitSpawn = startSpawn;
@@ -42,4 +47,5 @@ public class SpawnEnemy : MonoBehaviour
             waitSpawn -= Time.deltaTime;
         }
     }
+    
 }

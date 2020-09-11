@@ -15,7 +15,7 @@ public class EnemysScript : Shoot
     public Transform [] movepoint;
     private int RandomPoint;
 
-    public int lifeEnemy;
+    public int lifeEnemy = 3;
     public enemyType Type;
 
      float distance;
@@ -51,7 +51,7 @@ public class EnemysScript : Shoot
         SailScript = this.gameObject.transform.GetChild(2);
         HullScript = this.gameObject.transform.GetChild(1);
 
-        lifeEnemy = 5;
+        lifeEnemy = 3;
 
         colEnemy = gameObject.GetComponent<Collider2D>();
         enemyScript = gameObject.GetComponent<EnemysScript>();

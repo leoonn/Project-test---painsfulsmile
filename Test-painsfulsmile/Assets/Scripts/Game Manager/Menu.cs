@@ -9,8 +9,9 @@ public class Menu : MonoBehaviour
 {
     public GameObject PanelOptions;
     public Slider timeGame;
+    public Slider spawnEnemy;
     public TMP_Text time;
-    
+    public TMP_Text spawntimeText;
     void Start()
     {
         Time.timeScale = 1;
@@ -21,13 +22,14 @@ public class Menu : MonoBehaviour
     void Update()
     {
         time.text = timeGame.value.ToString();
-        
+        spawntimeText.text = spawnEnemy.value.ToString();
     }
 
     public void StartGame()
     {
         SceneManager.LoadScene("GameScene");
-        time.text = PlayerPrefs.GetInt("TimeGame", 0).ToString();
+        TimeGameSession();
+        TimeSpawnEnemy();
     }
 
     public void CloseOptions()
@@ -39,6 +41,15 @@ public class Menu : MonoBehaviour
     {
         PanelOptions.SetActive(true);
       
+    }
+
+    public void TimeGameSession()
+    {
+        PlayerPrefs.SetFloat("Time", timeGame.value);
+    }
+    public void TimeSpawnEnemy()
+    {
+        PlayerPrefs.SetFloat("TimeSpawn", spawnEnemy.value);
     }
 
 }

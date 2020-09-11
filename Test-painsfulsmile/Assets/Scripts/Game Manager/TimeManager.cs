@@ -7,15 +7,20 @@ using UnityEngine.UI;
 
 public class TimeManager : MonoBehaviour
 {
-    public  int timeGame;
+    float timeGame = 30;
     public TMP_Text timeText;
     PlayerMove playerScript;
     GameOver gameOverScript;
+
+    private void Awake()
+    {
+        timeGame = PlayerPrefs.GetFloat("Time", 0 );
+    }
     void Start()
     {
         playerScript = GameObject.Find("Player").GetComponent<PlayerMove>();
         gameOverScript = GameObject.Find("GameManager").GetComponent<GameOver>();
-        PlayerPrefs.SetInt("TimeGame", timeGame);
+        
     }
 
     // Update is called once per frame
@@ -27,7 +32,7 @@ public class TimeManager : MonoBehaviour
 
     void TimerGame()
     {
-        int time = timeGame -= (int)Time.time;
+        float time = timeGame -= Time.deltaTime;
 
         int minutes = Mathf.FloorToInt(time / 60);
         int seconds = Mathf.FloorToInt(time - minutes * 60);

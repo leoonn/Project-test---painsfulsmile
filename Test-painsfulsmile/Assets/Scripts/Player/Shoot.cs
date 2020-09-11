@@ -11,24 +11,21 @@ public class Shoot : MonoBehaviour
     public float timeShot;
     public float startTimeShots;
 
-
-
-
     void Start()
     {
         timeShot = startTimeShots;
-
+        
     }
 
     // Update is called once per frame
     void Update()
     {
 
-        Shooter(); //Initializing the method 
+       Shooter(); //Initializing the method 
     }
     public void Shooter() //method shoot
     {
-        if (Input.GetButton("Shoot") && timeShot <= 0 ) // if true ? shoot !!
+        if (Input.GetButton("Shoot") && timeShot <= 0 && gameObject.tag == "Player") // if true ? shoot !!
         {
 
             Instantiate(bulletprefab, Gun[0].position, Gun[0].rotation); //instanteate one bullet

@@ -388,8 +388,8 @@ RectTransform:
   m_Father: {fileID: 800807154}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.29811108, y: 0.74629635}
-  m_AnchorMax: {x: 0.39900002, y: 0.79351854}
+  m_AnchorMin: {x: 0.24000001, y: 0.74637043}
+  m_AnchorMax: {x: 0.34100002, y: 0.79351854}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 1}
@@ -412,7 +412,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Pirate War
+  m_text: PIRATE WAR
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -478,7 +478,7 @@ MonoBehaviour:
   m_firstVisibleCharacter: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: -543.9452, w: -83.471924}
+  m_margin: {x: 0, y: 0, z: -746.23096, w: -83.471924}
   m_textInfo:
     textComponent: {fileID: 82519827}
     characterCount: 10
@@ -837,7 +837,7 @@ MonoBehaviour:
   m_Direction: 0
   m_MinValue: 1
   m_MaxValue: 3
-  m_WholeNumbers: 0
+  m_WholeNumbers: 1
   m_Value: 1
   m_OnValueChanged:
     m_PersistentCalls:
@@ -11970,6 +11970,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PanelOptions: {fileID: 473453246}
+  timeGame: {fileID: 2130305188}
+  time: {fileID: 1822870374}
 --- !u!4 &1162992089
 Transform:
   m_ObjectHideFlags: 0
@@ -17970,7 +17972,7 @@ MonoBehaviour:
   m_firstVisibleCharacter: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 34.630005, w: 17.825867}
+  m_margin: {x: 0, y: 0, z: 66.03662, w: 17.825867}
   m_textInfo:
     textComponent: {fileID: 1822870374}
     characterCount: 2
@@ -18234,7 +18236,7 @@ MonoBehaviour:
   m_Direction: 0
   m_MinValue: 1
   m_MaxValue: 3
-  m_WholeNumbers: 0
+  m_WholeNumbers: 1
   m_Value: 1
   m_OnValueChanged:
     m_PersistentCalls:

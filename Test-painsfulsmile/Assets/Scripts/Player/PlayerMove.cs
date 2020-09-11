@@ -44,7 +44,7 @@ public class PlayerMove : MonoBehaviour
     {
         Move();
         Rotation();
-        
+        LifeManager();
     }
 
     void Move()
@@ -104,22 +104,23 @@ public class PlayerMove : MonoBehaviour
         {
             lifePlayer = 0;
         }
-        LifeManager();
+        
 
     }
     void LifeManager()
     {
-        if (lifePlayer == 7)
+        if (lifePlayer <= 7 && lifePlayer > 4)
         {
             HullScript.GetComponent<ChangeAssets>().ChangeSpriteHullDamage();
             SailScript.GetComponent<ChangeAssets>().ChangeSpriteSailDamage();
         }
-        if (lifePlayer == 4)
+        if (lifePlayer <= 4)
         {
             HullScript.GetComponent<ChangeAssets>().ChangeSpriteHullAlmost();
         }
-        if (lifePlayer == 0)
+        if (lifePlayer <= 0)
         {
+            lifePlayer = 0;
             GameObject bigExplo = Instantiate(bigExplosion, HullScript.transform.position, Quaternion.identity);
             Destroy(bigExplo, 0.35f);
             HullScript.GetComponent<ChangeAssets>().ChangeSpriteHullDead();

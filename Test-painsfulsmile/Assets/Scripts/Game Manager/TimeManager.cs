@@ -1,19 +1,21 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 using UnityEngine.UI;
 
 
 public class TimeManager : MonoBehaviour
 {
-    public  float timeGame = 30;
-    public Text timeText;
+    public  int timeGame;
+    public TMP_Text timeText;
     PlayerMove playerScript;
     GameOver gameOverScript;
     void Start()
     {
         playerScript = GameObject.Find("Player").GetComponent<PlayerMove>();
         gameOverScript = GameObject.Find("GameManager").GetComponent<GameOver>();
+        PlayerPrefs.SetInt("TimeGame", timeGame);
     }
 
     // Update is called once per frame
@@ -25,7 +27,7 @@ public class TimeManager : MonoBehaviour
 
     void TimerGame()
     {
-        float time = timeGame -= Time.deltaTime;
+        int time = timeGame -= (int)Time.time;
 
         int minutes = Mathf.FloorToInt(time / 60);
         int seconds = Mathf.FloorToInt(time - minutes * 60);

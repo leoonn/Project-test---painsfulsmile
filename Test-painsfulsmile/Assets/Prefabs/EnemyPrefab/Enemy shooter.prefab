@@ -405,7 +405,7 @@ MonoBehaviour:
   stopDistance: 6
   retraetDistance: 4
   nearDistance: 5
-  Exitdistance: 10
+  Exitdistance: 7
   SailScript: {fileID: 0}
   HullScript: {fileID: 0}
   explosion: {fileID: 992450673511755429, guid: cd5e97f9e21ac5c4492f292bf01f78a1,

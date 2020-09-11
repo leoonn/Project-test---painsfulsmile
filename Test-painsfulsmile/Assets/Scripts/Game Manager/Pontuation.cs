@@ -1,12 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 using UnityEngine.UI;
 
 public class Pontuation : MonoBehaviour
 {
     public  int points;
-    public Text ScoreText;
+    public TMP_Text ScoreText;
     //public Text HighScoreText;
     public  int pointsEnemy = 1;
     void Start()

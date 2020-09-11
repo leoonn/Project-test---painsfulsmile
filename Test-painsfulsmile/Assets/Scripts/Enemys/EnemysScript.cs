@@ -119,7 +119,7 @@ public class EnemysScript : Shoot
                 }
                 break;
             case enemyType.shooter:
-
+                distance = Vector2.Distance(transform.position, player.position);
                 if (distance > Exitdistance)
                 {
                     Type = enemyType.patrol;

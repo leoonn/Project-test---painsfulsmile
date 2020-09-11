@@ -31,6 +31,8 @@ public class SpawnEnemy : MonoBehaviour
         randomSpawn = Random.Range(0, pointsSpawn.Length);
         if (waitSpawn < 0)
         {
+            randomSpawn = Random.Range(0, pointsSpawn.Length);
+            randomEnemy = Random.Range(0, Enemys.Length);
             Instantiate(Enemys[randomEnemy], pointsSpawn[randomSpawn].position, Enemys[randomEnemy].transform.rotation);
             waitSpawn = startSpawn;
         }

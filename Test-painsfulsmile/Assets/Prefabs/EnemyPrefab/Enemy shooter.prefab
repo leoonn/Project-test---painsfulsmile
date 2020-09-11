@@ -410,8 +410,6 @@ MonoBehaviour:
   lifeEnemy: 5
   explosion: {fileID: 992450673511755429, guid: cd5e97f9e21ac5c4492f292bf01f78a1,
     type: 3}
-  bigExplosion: {fileID: 992450673511755429, guid: 21d784e8c0246e24fb67b2cb9131f4af,
-    type: 3}
 --- !u!1 &7630050629408158308
 GameObject:
   m_ObjectHideFlags: 0

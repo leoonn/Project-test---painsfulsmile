@@ -15,7 +15,6 @@ public class PlayerMove : MonoBehaviour
     
 
     public GameObject explosion;
-    public GameObject bigExplosion;
     PlayerMove playerScript;
 
     [HideInInspector]
@@ -106,9 +105,7 @@ public class PlayerMove : MonoBehaviour
         }
         if (lifePlayer == 0)
         {
-
-            GameObject bigExplo = Instantiate(explosion, gameObject.transform.position, Quaternion.identity);
-            Destroy(bigExplo, 0.5f);
+            Destroy(gameObject,1);
             HullScript.GetComponent<ChangeAssets>().ChangeSpriteHullDead();
             rb.velocity = Vector2.zero;
             playerScript.enabled = false;

@@ -23,14 +23,17 @@ public class PlayerMove : MonoBehaviour
 
     [HideInInspector]
     public Transform HullScript;
+    
     void Start()
     {
         rb = gameObject.GetComponent<Rigidbody2D>();
         SailScript = this.gameObject.transform.GetChild(2);
         HullScript = this.gameObject.transform.GetChild(1);
         lifePlayer = 10;
-
         playerScript = gameObject.GetComponent<PlayerMove>();
+
+        playerScript.enabled = true;
+
     }
 
     // Update is called once per frame
@@ -38,7 +41,7 @@ public class PlayerMove : MonoBehaviour
     {
         Move();
         Rotation();
-        LifeManager();
+        
     }
 
     void Move()
@@ -93,6 +96,13 @@ public class PlayerMove : MonoBehaviour
         {
             lifePlayer = 0;
         }
+
+        if (coll.gameObject.CompareTag("Islands"))
+        {
+            lifePlayer = 0;
+        }
+        LifeManager();
+
     }
     void LifeManager()
     {
@@ -112,8 +122,14 @@ public class PlayerMove : MonoBehaviour
             HullScript.GetComponent<ChangeAssets>().ChangeSpriteHullDead();
             SailScript.GetComponent<ChangeAssets>().ChangeSpriteSailDead();
             rb.velocity = Vector2.zero;
-            playerScript.enabled = false;
+            playerScript.enabled = false; 
+            Invoke("StopTime", 0.4f);
         }
 
+    }
+
+    void StopTime()
+    {
+        Time.timeScale = 0;
     }
 }

@@ -10,6 +10,7 @@ TagManager:
   - Hull
   - BulletPlayer
   - BulletEnemy
+  - Islands
   layers:
   - Default
   - TransparentFX

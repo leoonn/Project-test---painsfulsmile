@@ -6,18 +6,24 @@ using UnityEngine.UI;
 
 public class TimeManager : MonoBehaviour
 {
-    public static float timeGame;
+    public  float timeGame = 30;
     public Text timeText;
+    PlayerMove playerScript;
     void Start()
     {
-        
+        playerScript = GameObject.Find("Player").GetComponent<PlayerMove>();
     }
 
     // Update is called once per frame
     void Update()
     {
-         
-       float time = timeGame -= Time.deltaTime;
+        TimerGame();
+
+    }
+
+    void TimerGame()
+    {
+        float time = timeGame -= Time.deltaTime;
 
         int minutes = Mathf.FloorToInt(time / 60);
         int seconds = Mathf.FloorToInt(time - minutes * 60);
@@ -26,7 +32,9 @@ public class TimeManager : MonoBehaviour
         if (timeGame < 0)
         {
             timeGame = 0;
-
+            Time.timeScale = 0;
+            playerScript.enabled = false;
+            Debug.Log("GameOver");
         }
         timeText.text = textTime;
     }

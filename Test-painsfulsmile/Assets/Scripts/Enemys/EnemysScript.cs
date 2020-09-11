@@ -13,6 +13,7 @@ public class EnemysScript : Shoot
     public Transform [] movepoint;
     private int RandomPoint;
 
+    public int lifeEnemy;
     public enemyType Type;
 
      float distance;
@@ -29,13 +30,15 @@ public class EnemysScript : Shoot
     [HideInInspector]
     public Transform HullScript;
 
-    public int lifeEnemy;
+    
 
      Collider2D colEnemy;
     EnemysScript enemyScript;
 
     public GameObject explosion;
     public GameObject bigExplosion;
+
+    Pontuation pontuationScript;
     void Start()
     {
         waitTimePoint = startTimePoint;
@@ -52,6 +55,8 @@ public class EnemysScript : Shoot
         enemyScript = gameObject.GetComponent<EnemysScript>();
 
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
+
+        pontuationScript = GameObject.Find("GameManager").GetComponent<Pontuation>();
     }
 
     // Update is called once per frame
@@ -96,11 +101,11 @@ public class EnemysScript : Shoot
                 break;
             case enemyType.chase:
                 distance = Vector2.Distance(transform.position, player.position);
-                if (distance > Exitdistance)
+                /*if (distance > Exitdistance)
                 {
                     Debug.Log("PATROL");
                     Type = enemyType.patrol;
-                }
+                }*/
                 if (gameObject.tag == "Chase")
                 {
                     FollowPlayer(player.position);
@@ -122,7 +127,7 @@ public class EnemysScript : Shoot
                     if (Vector2.Distance(transform.position, player.position) > stopDistance)
                     {
                         FollowPlayer(player.position);
-                        //RotateForPlayer(player.position);
+                        RotateForPlayer(player.position);
 
                     }
                     else if (Vector2.Distance(transform.position, player.position) < stopDistance && Vector2.Distance(transform.position, player.position) > retraetDistance)
@@ -137,10 +142,10 @@ public class EnemysScript : Shoot
 
                     if (timeShot <= 0)
                     {
-                        Instantiate(bulletprefab, Gun[0].position, Gun[0].rotation); //instanteate one bullet
-                        Instantiate(bulletprefab, Gun[1].position, Gun[1].rotation); //instanteate one bullet
-                        Instantiate(bulletprefab, Gun[2].position, Gun[2].rotation); //instanteate one bullet
-                        Instantiate(bulletprefab, Gun[3].position, Gun[3].rotation); //instanteate one bullet
+                        Instantiate(bulletprefab, Gun[0].position, Gun[0].rotation); 
+                        Instantiate(bulletprefab, Gun[1].position, Gun[1].rotation); 
+                        Instantiate(bulletprefab, Gun[2].position, Gun[2].rotation); 
+                        Instantiate(bulletprefab, Gun[3].position, Gun[3].rotation); 
                         timeShot = startTimeShots;
 
                     }
@@ -156,6 +161,8 @@ public class EnemysScript : Shoot
                 break;
             case enemyType.dead:
                 SailScript.GetComponent<ChangeAssets>().ChangeSpriteHullDead();
+                pontuationScript.points += pontuationScript.pointsEnemy;
+                pontuationScript.ScoreText.text = pontuationScript.points.ToString();
                 colEnemy.enabled = false;
                 enemyScript.enabled = false;
                 Destroy(gameObject,5);
@@ -194,6 +201,14 @@ public class EnemysScript : Shoot
             GameObject explo = Instantiate(explosion, col.transform.position, Quaternion.identity);
             Destroy(explo, 0.35f);
             Destroy(col.gameObject);
+        }
+    }
+
+    private void OnCollisionEnter2D(Collision2D coll)
+    {
+        if (coll.gameObject.CompareTag("Islands"))
+        {
+            lifeEnemy = 0;
         }
     }
 

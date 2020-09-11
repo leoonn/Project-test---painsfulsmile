@@ -15,6 +15,7 @@ public class PlayerMove : MonoBehaviour
     
 
     public GameObject explosion;
+    public GameObject bigExplosion;
     PlayerMove playerScript;
 
     [HideInInspector]
@@ -80,7 +81,7 @@ public class PlayerMove : MonoBehaviour
 
             lifePlayer--;
             GameObject explo = Instantiate(explosion, col.transform.position, Quaternion.identity);
-            Destroy(explo, 0.5f);
+            Destroy(explo, 0.3f);
             Destroy(col.gameObject);
         }
         
@@ -98,6 +99,7 @@ public class PlayerMove : MonoBehaviour
         if (lifePlayer == 7)
         {
             HullScript.GetComponent<ChangeAssets>().ChangeSpriteHullDamage();
+            SailScript.GetComponent<ChangeAssets>().ChangeSpriteSailDamage();
         }
         if (lifePlayer == 4)
         {
@@ -105,8 +107,10 @@ public class PlayerMove : MonoBehaviour
         }
         if (lifePlayer == 0)
         {
-            Destroy(gameObject,1);
+            GameObject bigExplo = Instantiate(bigExplosion, HullScript.transform.position, Quaternion.identity);
+            Destroy(bigExplo, 0.35f);
             HullScript.GetComponent<ChangeAssets>().ChangeSpriteHullDead();
+            SailScript.GetComponent<ChangeAssets>().ChangeSpriteSailDead();
             rb.velocity = Vector2.zero;
             playerScript.enabled = false;
         }

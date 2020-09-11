@@ -35,6 +35,7 @@ public class EnemysScript : Shoot
     EnemysScript enemyScript;
 
     public GameObject explosion;
+    public GameObject bigExplosion;
     void Start()
     {
         waitTimePoint = startTimePoint;
@@ -191,7 +192,7 @@ public class EnemysScript : Shoot
         {
             lifeEnemy--;
             GameObject explo = Instantiate(explosion, col.transform.position, Quaternion.identity);
-            Destroy(explo, 0.5f);
+            Destroy(explo, 0.35f);
             Destroy(col.gameObject);
         }
     }
@@ -201,6 +202,7 @@ public class EnemysScript : Shoot
         if (lifeEnemy == 3)
         {
             HullScript.GetComponent<ChangeAssets>().ChangeSpriteHullDamage();
+            SailScript.GetComponent<ChangeAssets>().ChangeSpriteSailDamage();
         }
         if (lifeEnemy == 1)
         {
@@ -209,7 +211,10 @@ public class EnemysScript : Shoot
         if (lifeEnemy == 0)
         {
             Type = enemyType.dead;
+            GameObject bigExplo = Instantiate(bigExplosion, HullScript.transform.position, Quaternion.identity);
+            Destroy(bigExplo, 0.3f);
             HullScript.GetComponent<ChangeAssets>().ChangeSpriteHullDead();
+            SailScript.GetComponent<ChangeAssets>().ChangeSpriteSailDead();
         }
 
     }

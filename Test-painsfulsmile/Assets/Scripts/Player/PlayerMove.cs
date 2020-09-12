@@ -130,13 +130,13 @@ public class PlayerMove : MonoBehaviour
             rb.velocity = Vector2.zero;
             playerScript.enabled = false; 
             Invoke("GameOverTime", 0.7f);
-            LifeUi();
+            
         }
-
+        LifeUi();
     }
     void LifeUi()
     {
-        if (lifePlayer <= 8   )
+        if (lifePlayer < 10   )
         {
             life[0].SetActive(false);
         }

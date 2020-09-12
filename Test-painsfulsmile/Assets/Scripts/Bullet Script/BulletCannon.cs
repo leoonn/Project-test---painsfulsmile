@@ -40,9 +40,9 @@ public class BulletCannon : MonoBehaviour
     {
         
     }
-    private void OnTriggerEnter2D(Collider2D col)
+    private void OnTriggerEnter2D(Collider2D coll)
     {
-        if (col.gameObject.CompareTag("Islands"))
+        if (coll.gameObject.CompareTag("Islands"))
         {
             Destroy(gameObject);
         }

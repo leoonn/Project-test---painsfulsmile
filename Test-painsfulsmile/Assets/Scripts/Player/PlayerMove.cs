@@ -25,6 +25,8 @@ public class PlayerMove : MonoBehaviour
     public Transform HullScript;
 
     GameOver gameOverScript;
+
+    public GameObject[] life;
     void Start()
     {
         rb = gameObject.GetComponent<Rigidbody2D>();
@@ -128,8 +130,36 @@ public class PlayerMove : MonoBehaviour
             rb.velocity = Vector2.zero;
             playerScript.enabled = false; 
             Invoke("GameOverTime", 0.7f);
+            LifeUi();
         }
 
+    }
+    void LifeUi()
+    {
+        if (lifePlayer <= 8   )
+        {
+            life[0].SetActive(false);
+        }
+        if(lifePlayer < 8  )
+        {
+            life[1].SetActive(false);
+        }
+        if(lifePlayer < 6  )
+        {
+            life[2].SetActive(false);
+        }
+        if(lifePlayer < 4  )
+        {
+            life[3].SetActive(false);
+        }
+        if(lifePlayer <= 0 )
+        {
+            life[4].SetActive(false);
+            life[3].SetActive(false);
+            life[2].SetActive(false);
+            life[1].SetActive(false);
+            life[0].SetActive(false);
+        }
     }
 
     void GameOverTime()

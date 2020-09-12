@@ -27,7 +27,7 @@ public class Menu : MonoBehaviour
 
     public void StartGame()
     {
-        SceneManager.LoadScene("Loading");
+        SceneManager.LoadScene("GameScene");
         TimeGameSession();
         TimeSpawnEnemy();
     }

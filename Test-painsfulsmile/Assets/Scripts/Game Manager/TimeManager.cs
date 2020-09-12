@@ -14,12 +14,13 @@ public class TimeManager : MonoBehaviour
 
     private void Awake()
     {
-        timeGame = PlayerPrefs.GetFloat("Time", 0 );
+        timeGame = PlayerPrefs.GetFloat("Time", 0 ); //get float that other sccript
     }
     void Start()
     {
-        playerScript = GameObject.Find("Player").GetComponent<PlayerMove>();
-        gameOverScript = GameObject.Find("GameManager").GetComponent<GameOver>();
+        //get component by name
+        playerScript = GameObject.Find("Player").GetComponent<PlayerMove>(); 
+        gameOverScript = GameObject.Find("GameManager").GetComponent<GameOver>(); 
         
     }
 
@@ -34,10 +35,12 @@ public class TimeManager : MonoBehaviour
     {
         float time = timeGame -= Time.deltaTime;
 
-        int minutes = Mathf.FloorToInt(time / 60);
-        int seconds = Mathf.FloorToInt(time - minutes * 60);
+        int minutes = Mathf.FloorToInt(time / 60); //transform seconds in minutes
+        int seconds = Mathf.FloorToInt(time - minutes * 60); //transform minutes in seconds
 
-        string textTime = string.Format("{0:0}:{1:00}", minutes, seconds);
+        string textTime = string.Format("{0:0}:{1:00}", minutes, seconds); 
+
+        //gameover
         if (timeGame < 0)
         {
             timeGame = 0;

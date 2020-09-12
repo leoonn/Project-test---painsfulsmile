@@ -49,7 +49,8 @@ public class EnemysScript : Shoot
         RandomPoint = Random.Range(0, movepoint.Length);
         timeShot = startTimeShots;
 
-        SailScript = this.gameObject.transform.GetChild(2);
+        //get position in Hierarchy
+        SailScript = this.gameObject.transform.GetChild(2); 
         HullScript = this.gameObject.transform.GetChild(1);
 
         lifeEnemy = 3;
@@ -106,11 +107,7 @@ public class EnemysScript : Shoot
                 break;
             case enemyType.chase:
                 distance = Vector2.Distance(transform.position, player.position);
-                /*if (distance > Exitdistance)
-                {
-                    Debug.Log("PATROL");
-                    Type = enemyType.patrol;
-                }*/
+                
                 if (gameObject.tag == "Chase")
                 {
                     FollowPlayer(player.position);

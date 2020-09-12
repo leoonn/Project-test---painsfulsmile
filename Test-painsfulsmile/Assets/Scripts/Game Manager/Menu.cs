@@ -46,11 +46,11 @@ public class Menu : MonoBehaviour
 
     public void TimeGameSession()
     {
-        PlayerPrefs.SetFloat("Time", timeGame.value);
+        PlayerPrefs.SetFloat("Time", timeGame.value); //ser a float 
     }
     public void TimeSpawnEnemy()
     {
-        PlayerPrefs.SetFloat("TimeSpawn", spawnEnemy.value);
+        PlayerPrefs.SetFloat("TimeSpawn", spawnEnemy.value); //set a float
     }
 
 }

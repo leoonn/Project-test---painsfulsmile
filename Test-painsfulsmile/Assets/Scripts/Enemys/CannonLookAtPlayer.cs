@@ -27,12 +27,13 @@ public class CannonLookAtPlayer : MonoBehaviour
         }
         
     }
+
     void RotateForPlayer(Vector2 player)
     {
-        float offset = 90f;
+        float Dir = 90f;
         Vector2 direction = player - (Vector2)transform.position;
         direction.Normalize();
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg; // convert radians in constant
-        transform.rotation = Quaternion.Euler(Vector3.forward * (angle + offset));
+        transform.rotation = Quaternion.Euler(Vector3.forward * (angle + Dir)); //rotate object in direction of player
     }
 }

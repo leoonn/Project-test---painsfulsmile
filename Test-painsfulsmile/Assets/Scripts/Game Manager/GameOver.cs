@@ -29,6 +29,7 @@ public class GameOver : MonoBehaviour
 
     public void RecordShow()
     {
+        //get a record 
         if (pointsScript.points > PlayerPrefs.GetInt("HighScore", 0)) 
         {
             PlayerPrefs.SetInt("HighScore", pointsScript.points); 

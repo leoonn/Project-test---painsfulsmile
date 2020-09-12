@@ -28,10 +28,10 @@ public class Shoot : MonoBehaviour
         if (Input.GetButton("Shoot") && timeShot <= 0 && gameObject.tag == "Player") // if true ? shoot !!
         {
 
-            Instantiate(bulletprefab, Gun[0].position, Gun[0].rotation); //instanteate one bullet
-            Instantiate(bulletprefab, Gun[1].position, Gun[1].rotation); //instanteate one bullet
-            Instantiate(BulletFlipedPrefab, Gun[2].position, Gun[2].rotation); //instanteate one bullet
-            Instantiate(bulletprefab, Gun[3].position, Gun[3].rotation); //instanteate one bullet
+            Instantiate(bulletprefab, Gun[0].position, Gun[0].rotation); 
+            Instantiate(bulletprefab, Gun[1].position, Gun[1].rotation); 
+            Instantiate(BulletFlipedPrefab, Gun[2].position, Gun[2].rotation); 
+            Instantiate(bulletprefab, Gun[3].position, Gun[3].rotation); 
             
             
             timeShot = startTimeShots;

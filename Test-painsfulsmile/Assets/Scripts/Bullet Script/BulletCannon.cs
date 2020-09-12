@@ -16,17 +16,9 @@ public class BulletCannon : MonoBehaviour
     private void Awake()
     {
         BulletRb = GetComponent<Rigidbody2D>(); //get component Rigidbody
-        if (Bullet)
-        {
-            BulletRb.AddForce(BulletRb.transform.right * speedBullet); //addforce bullet
-            Destroy(gameObject, lifeBullet); //Destroy bullet in time life
-        }
-        if (BulletFliped)
-        {
-            BulletRb.AddForce(BulletRb.transform.right * speedBullet); //addforce bullet
-            Destroy(gameObject, lifeBullet); //Destroy bullet in time life
-        }
-       
+        SpeedBullet();
+
+
     }
 
     
@@ -45,6 +37,20 @@ public class BulletCannon : MonoBehaviour
         if (coll.gameObject.CompareTag("Islands"))
         {
             Destroy(gameObject);
+        }
+    }
+
+    void SpeedBullet()
+    {
+        if (Bullet)
+        {
+            BulletRb.AddForce(BulletRb.transform.right * speedBullet); //addforce bullet
+            Destroy(gameObject, lifeBullet); //Destroy bullet in time life
+        }
+        if (BulletFliped)
+        {
+            BulletRb.AddForce(BulletRb.transform.right * speedBullet); //addforce bullet
+            Destroy(gameObject, lifeBullet); //Destroy bullet in time life
         }
     }
 

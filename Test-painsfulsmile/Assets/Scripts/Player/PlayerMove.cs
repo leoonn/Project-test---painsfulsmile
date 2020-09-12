@@ -97,7 +97,7 @@ public class PlayerMove : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D coll)
     {
-        if (coll.gameObject.CompareTag("Chase"))
+        if (coll.gameObject.CompareTag("Chase")|| coll.gameObject.CompareTag("Shooter"))
         {
             lifePlayer = 0;
         }

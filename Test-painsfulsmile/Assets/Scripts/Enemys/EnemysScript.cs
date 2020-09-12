@@ -217,11 +217,14 @@ public class EnemysScript : Shoot
             if (Type == enemyType.chase || Type == enemyType.shooter)
             {
                 pontuationScript.GetPontuation();
-                
+
             }
         }
+        if (coll.gameObject.CompareTag("Player"))
+        {
+            lifeEnemy = 0;
+        }
     }
-
     void LifeManager()
     {
         if (lifeEnemy <= 2)

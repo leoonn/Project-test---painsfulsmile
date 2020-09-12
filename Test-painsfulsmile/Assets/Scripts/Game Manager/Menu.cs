@@ -12,10 +12,11 @@ public class Menu : MonoBehaviour
     public Slider spawnEnemy;
     public TMP_Text time;
     public TMP_Text spawntimeText;
+    Loading loadScript;
     void Start()
     {
         Time.timeScale = 1;
-        
+        loadScript = gameObject.GetComponent<Loading>();
     }
 
     // Update is called once per frame
@@ -27,7 +28,7 @@ public class Menu : MonoBehaviour
 
     public void StartGame()
     {
-        SceneManager.LoadScene("GameScene");
+        loadScript.LoadActive();
         TimeGameSession();
         TimeSpawnEnemy();
     }

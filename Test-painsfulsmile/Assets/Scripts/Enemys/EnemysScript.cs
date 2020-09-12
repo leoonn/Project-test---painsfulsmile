@@ -41,6 +41,7 @@ public class EnemysScript : Shoot
     public GameObject bigExplosion;
 
     Pontuation pontuationScript;
+    public GameObject[] life;
     void Start()
     {
         waitTimePoint = startTimePoint;
@@ -59,6 +60,8 @@ public class EnemysScript : Shoot
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
 
         pontuationScript = GameObject.Find("GameManager").GetComponent<Pontuation>();
+
+
     }
 
     // Update is called once per frame
@@ -224,24 +227,49 @@ public class EnemysScript : Shoot
 
     void LifeManager()
     {
-        if (lifeEnemy == 2)
+        if (lifeEnemy <= 2)
         {
             HullScript.GetComponent<ChangeAssets>().ChangeSpriteHullDamage();
             SailScript.GetComponent<ChangeAssets>().ChangeSpriteSailDamage();
         }
-        if (lifeEnemy == 1)
+        if (lifeEnemy <= 1)
         {
             HullScript.GetComponent<ChangeAssets>().ChangeSpriteHullAlmost();
         }
-        if (lifeEnemy == 0)
+        if (lifeEnemy <= 0)
         {
+            lifeEnemy = 0;
             Type = enemyType.dead;
             GameObject bigExplo = Instantiate(bigExplosion, HullScript.transform.position, Quaternion.identity);
             Destroy(bigExplo, 0.3f);
             HullScript.GetComponent<ChangeAssets>().ChangeSpriteHullDead();
             SailScript.GetComponent<ChangeAssets>().ChangeSpriteSailDead();
         }
+        LifeUi();
+    }
 
+    void LifeUi()
+    {
+        if (lifeEnemy < 3)
+        {
+            life[0].SetActive(false);
+        }
+        if (lifeEnemy < 2)
+        {
+            life[1].SetActive(false);
+        }
+        if (lifeEnemy < 1)
+        {
+            life[2].SetActive(false);
+        }
+        
+        if (lifeEnemy <= 0)
+        {
+            
+            life[2].SetActive(false);
+            life[1].SetActive(false);
+            life[0].SetActive(false);
+        }
     }
 
 } //gameObject.GetComponent<ChangeAssets>().ChangeSpriteSnailWalk();

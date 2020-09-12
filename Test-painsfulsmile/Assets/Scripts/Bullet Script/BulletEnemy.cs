@@ -13,14 +13,14 @@ public class BulletEnemy : MonoBehaviour
 
     private Transform player;
     private Vector2 target;
-
+    Rigidbody2D BulletRb;
     private void Awake()
     {
         
 
 
-        /*BulletRb = GetComponent<Rigidbody2D>(); //get component Rigidbody
-        if (Bullet)
+        BulletRb = GetComponent<Rigidbody2D>(); //get component Rigidbody
+        /*if (Bullet)
         {
             BulletRb.AddForce(BulletRb.transform.right * speedBullet); //addforce bullet
             Destroy(gameObject, lifeBullet); //Destroy bullet in time life
@@ -53,4 +53,12 @@ public class BulletEnemy : MonoBehaviour
             Destroy(gameObject);
         }
     }
+    private void OnTriggerEnter2D(Collider2D col)
+    {
+        if (col.gameObject.CompareTag("Islands"))
+        { 
+            Destroy(gameObject);
+        }
+    }
+
 }
